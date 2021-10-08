@@ -1,0 +1,59 @@
+.heroes {
+	width: 85%;
+	margin: 0 auto;
+}
+.hero-card {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	width: 13%;
+	border: 1px solid;
+	margin: 1%;
+	border-radius: 5px;
+	box-shadow: 0 0 5px 2px #fff;
+	overflow: hidden;
+	background-color: #fff;
+}
+.hero-card__img {
+	max-width: 160px;
+}
+.hero-card__img img {
+	width: 100%;
+}
+.hero-card__skills {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	width: 100%;
+	padding: 10px 0;
+}
+
+.hero-card__name {
+	text-align: center;
+}
+
+.skills__skill-card {
+	width: 80%;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	font-size: 0.75rem;
+}
+
+.hero-card__skill-bar {
+	display: flex;
+	width: 50%;
+	height: 10px;
+	font-size: 0.35rem;
+	text-align: center;
+	transition: 0.5s;
+	overflow: hidden;
+	border: 1px solid;
+}
+.hero-card__progress-bar {
+	content: " ";
+	width: 0%;
+	height: 100%;
+	color: #fff;
+	transition: 2s;
+}
