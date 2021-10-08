@@ -1,6 +1,6 @@
 import React from "react";
-import HeroCard from "../components/hero-cards/hero-card";
+import HeroesList from "../components/heroes-list/heroes-list";
 
 export default function Home() {
-	return <HeroCard></HeroCard>;
+	return <HeroesList></HeroesList>;
 }

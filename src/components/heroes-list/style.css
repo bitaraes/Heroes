@@ -1,0 +1,7 @@
+.heroes {
+	display: flex;
+	flex-wrap: wrap;
+	width: 85%;
+	margin: 0 auto;
+	margin-top: 1%;
+}
