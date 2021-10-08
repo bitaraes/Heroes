@@ -11,6 +11,7 @@
 	background-color: #fff;
 	cursor: pointer;
 	transition: 0.5s;
+	min-width: 155px;
 }
 
 .hero-card:hover {
