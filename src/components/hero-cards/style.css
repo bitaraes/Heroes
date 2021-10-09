@@ -6,7 +6,7 @@
 	border: 1px solid;
 	margin: 1%;
 	border-radius: 5px;
-	box-shadow: 0 0 5px 2px #fff;
+	box-shadow: 0 0 9px 0px red;
 	overflow: hidden;
 	background-color: #fff;
 	cursor: pointer;
@@ -17,6 +17,15 @@
 .hero-card:hover {
 	transform: scale(1.05);
 	box-shadow: 0 0 7px 6px #b1b1b1;
+}
+.combat__heroes-card > .hero-card {
+	box-shadow: none;
+	border: 1px solid #fff;
+}
+
+.combat__heroes-card > .hero-card:hover {
+	transform: none;
+	box-shadow: 0 0 5px 2px #fff;
 }
 .hero-card__img {
 	max-width: 160px;

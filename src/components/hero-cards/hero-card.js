@@ -2,11 +2,11 @@ import React from "react";
 
 import "./style.css";
 
-export default function HeroCard({ hero }) {
+export default function HeroCard({ hero, fighter, id }) {
 	const powerStats = [{ ...hero.powerstats }];
 
 	return (
-		<div className="hero-card">
+		<div className="hero-card" onClick={fighter} id={id}>
 			<div className="hero-card__img">
 				<img src={hero.images.sm} alt="" />
 			</div>
@@ -23,8 +23,11 @@ export default function HeroCard({ hero }) {
 										style={{
 											width: `${hero.powerstats[current]}%`,
 											backgroundColor: `${
-												hero.powerstats[current] < 50
+												hero.powerstats[current] < 30
 													? "red"
+													: hero.powerstats[current] <
+													  60
+													? "yellow"
 													: "green"
 											}`,
 										}}
