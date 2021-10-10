@@ -6,6 +6,7 @@ import { Box, Modal, CircularProgress } from "@material-ui/core";
 import { SyncAlt, ArrowUpward, ArrowDownward } from "@material-ui/icons";
 
 import "./style.css";
+import ToTopButton from "../shared/to-top-button/to-top-button";
 
 export default function HeroesList() {
 	const [heroes, setHeroes] = useState(null);
@@ -323,6 +324,7 @@ export default function HeroesList() {
 			</div>
 			{seeMore()}
 			{fighters.length === 2 ? mountCombatModal() : null}
+			<ToTopButton />
 		</>
 	);
 }
