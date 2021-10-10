@@ -13,14 +13,9 @@ export default function HeroesList() {
 	const [filter, setFilter] = useState("");
 	const [fighters, setfighters] = useState([]);
 	const [open, setOpen] = useState(false);
-
-	const handleOpen = () => {
-		setOpen(true);
-	};
-	const handleClose = () => {
-		setOpen(false);
-		setfighters([]);
-	};
+	const [totalPages, setTotalPages] = useState(null);
+	const [currentPage, setCurrentPage] = useState(1);
+	const itemsPerPage = 12;
 	const style = {
 		position: "absolute",
 		top: "50%",
@@ -33,12 +28,16 @@ export default function HeroesList() {
 	};
 
 	useEffect(() => {
-		findHeroes().then((data) => {
-			setHeroes(data);
-			setAllHeroes(data);
-		});
-	}, []);
-	useEffect(() => {
+		if (!allHeroes) {
+			findHeroes().then((data) => {
+				setHeroes(data.slice(0, itemsPerPage * currentPage));
+				setAllHeroes(data);
+				setTotalPages(Math.round(data.length / itemsPerPage));
+			});
+		} else {
+			setHeroes(allHeroes.slice(0, itemsPerPage * currentPage));
+		}
+
 		if (filter !== "") {
 			const newState = [...allHeroes].filter((current) => {
 				return current.name
@@ -47,16 +46,19 @@ export default function HeroesList() {
 			});
 			setHeroes(newState);
 		}
-	}, [filter, allHeroes]);
+	}, [itemsPerPage, currentPage, allHeroes, filter]);
 	useEffect(() => {
 		if (fighters.length === 2) {
 			handleOpen();
 		}
 	}, [fighters]);
 
-	function heroesFilter(event) {
-		const eventValue = event;
-		setFilter(eventValue);
+	function handleOpen() {
+		setOpen(true);
+	}
+	function handleClose() {
+		setOpen(false);
+		setfighters([]);
 	}
 
 	function mountList() {
@@ -87,22 +89,33 @@ export default function HeroesList() {
 		}
 	}
 
-	function seeAll() {
-		if (heroes && allHeroes && heroes.length < allHeroes.length) {
+	function seeMore() {
+		if (heroes && allHeroes && currentPage < totalPages && filter === "") {
 			return (
-				<div className="seeAll">
+				<div className="seeMore">
 					<button
 						onClick={() => {
-							setHeroes(allHeroes);
-							setFilter("");
+							setCurrentPage(currentPage + 1);
 						}}
 					>
-						Ver Todos
+						Ver Mais
 					</button>
 				</div>
 			);
 		}
-		return null;
+		if (filter !== "") {
+			return (
+				<div className="seeMore">
+					<button
+						onClick={() => {
+							setFilter("");
+						}}
+					>
+						Voltar
+					</button>
+				</div>
+			);
+		}
 	}
 
 	function defineFighters(fighterId) {
@@ -301,14 +314,14 @@ export default function HeroesList() {
 		<>
 			<Search
 				search={(event) => {
-					heroesFilter(event.target.value);
+					setFilter(event.target.value);
 				}}
 				value={filter}
 			></Search>
 			<div className="heroes-container">
 				<div className="heroes">{mountList()}</div>
 			</div>
-			{seeAll()}
+			{seeMore()}
 			{fighters.length === 2 ? mountCombatModal() : null}
 		</>
 	);
