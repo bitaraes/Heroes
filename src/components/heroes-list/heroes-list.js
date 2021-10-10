@@ -41,7 +41,9 @@ export default function HeroesList() {
 	useEffect(() => {
 		if (filter !== "") {
 			const newState = [...allHeroes].filter((current) => {
-				return current.name.toLowerCase().includes(filter);
+				return current.name
+					.toLowerCase()
+					.includes(filter.toLowerCase());
 			});
 			setHeroes(newState);
 		}
@@ -303,7 +305,9 @@ export default function HeroesList() {
 				}}
 				value={filter}
 			></Search>
-			<div className="heroes">{mountList()}</div>
+			<div className="heroes-container">
+				<div className="heroes">{mountList()}</div>
+			</div>
 			{seeAll()}
 			{fighters.length === 2 ? mountCombatModal() : null}
 		</>

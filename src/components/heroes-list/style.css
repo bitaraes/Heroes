@@ -1,8 +1,19 @@
+.heroes-container {
+	display: flex;
+	justify-content: center;
+	width: 85%;
+	margin: 0 auto;
+}
+@media screen and (max-width: 405px) {
+	.heroes-container {
+		width: 100%;
+	}
+}
+
 .heroes {
 	display: flex;
 	flex-wrap: wrap;
-	width: 85%;
-	margin: 0 auto;
+	width: 100%;
 	margin-top: 1%;
 }
 
