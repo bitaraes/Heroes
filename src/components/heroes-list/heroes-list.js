@@ -23,6 +23,7 @@ export default function HeroesList() {
 		left: "50%",
 		transform: "translate(-50%, -50%)",
 		width: "70%",
+		minWidth: "165px",
 		bgcolor: "red",
 		border: "2px solid #000",
 		boxShadow: "0px 0px 16px -8px red",
@@ -184,7 +185,7 @@ export default function HeroesList() {
 													<span>
 														{leftFighter[current]}
 													</span>
-													<span>
+													<span className="combat-powerstats__img">
 														{leftFighter[current] -
 															rightFighter[
 																current
@@ -242,7 +243,7 @@ export default function HeroesList() {
 													{current}
 												</span>
 												<div className="combat-powerstats right-fighter">
-													<span>
+													<span className="combat-powerstats__img">
 														{leftFighter[current] -
 															rightFighter[
 																current
