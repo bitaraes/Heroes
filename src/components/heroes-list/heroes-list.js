@@ -4,11 +4,13 @@ import HeroCard from "../hero-cards/hero-card";
 import Search from "../search/search";
 
 import "./style.css";
+import Fade from "../shared/fade/fade";
 import Modal from "./../shared/modal/modal";
-import Box from "./../shared/box/box";
+import Box from "../shared/box/box";
 import Loading from "../shared/loading/loading";
 import SeeMoreButton from "../see-more-button/see-more-button";
 import CombatHeroesCard from "../combat-heroes-card/combat-heroes-card";
+import SelectedPlayer from "../selected-player/selected-player";
 
 export default function HeroesList() {
 	const [heroes, setHeroes] = useState(null);
@@ -29,6 +31,7 @@ export default function HeroesList() {
 		bgcolor: "red",
 		border: "2px solid #000",
 		boxShadow: "0px 0px 16px -8px red",
+		transitionDelay: "1000ms",
 	};
 
 	useEffect(() => {
@@ -111,16 +114,27 @@ export default function HeroesList() {
 	}
 	function mountCombatModal() {
 		return (
-			<Modal open={open} onClose={handleClose}>
-				<Box sx={style}>
-					<div className="combat__container">
-						<CombatHeroesCard fighters={fighters} />
-					</div>
-				</Box>
+			<Modal open={open} onClose={handleClose} closeAfterTransition>
+				<Fade in={open}>
+					<Box sx={style}>
+						<div className="combat__container">
+							<CombatHeroesCard fighters={fighters} />
+						</div>
+					</Box>
+				</Fade>
 			</Modal>
 		);
 	}
-
+	function viewSelectedPlayer() {
+		return (
+			<SelectedPlayer
+				fighters={fighters}
+				clear={() => {
+					setfighters([]);
+				}}
+			/>
+		);
+	}
 	return (
 		<>
 			<Search
@@ -134,6 +148,7 @@ export default function HeroesList() {
 			</div>
 			{seeMore()}
 			{fighters.length === 2 ? mountCombatModal() : null}
+			{fighters ? viewSelectedPlayer() : null}
 		</>
 	);
 }

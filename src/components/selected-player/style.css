@@ -1,0 +1,45 @@
+.selected-player {
+	position: fixed;
+	bottom: 0;
+	right: 0;
+	margin: 3em 2em;
+	width: 130px;
+	background-color: transparent;
+	display: flex;
+	flex-direction: column;
+	border-radius: 4px;
+	overflow: hidden;
+}
+.selected-player__card {
+	display: flex;
+	background-color: white;
+	text-align: center;
+	justify-content: space-between;
+	align-items: center;
+	border: 1px solid;
+	border-radius: 4px;
+	height: 60px;
+	margin-bottom: 2px;
+}
+.selected-player__name {
+	font-size: 0.9rem;
+}
+
+.selected-player__img {
+	width: 32px;
+	padding: 2px;
+}
+.selected-player__delete {
+	display: flex;
+	align-items: center;
+	height: 60px;
+	border: 1px solid #be3131;
+	cursor: pointer;
+	background-color: #be3131;
+	border-radius: 0 4px 4px 0;
+	transition: 0.1s;
+}
+.selected-player__delete:hover {
+	border: 1px solid #8f2424;
+	background-color: #8d2424;
+}
