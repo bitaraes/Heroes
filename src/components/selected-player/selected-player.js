@@ -4,7 +4,6 @@ import "./style.css";
 import { Clear } from "@material-ui/icons";
 
 export default function SelectedPlayer({ fighters, clear }) {
-	console.log(fighters);
 	return (
 		<div className="selected-player">
 			{fighters.map((current) => {
@@ -22,6 +21,7 @@ export default function SelectedPlayer({ fighters, clear }) {
 						<div
 							className="selected-player__delete"
 							onClick={clear}
+							heroName={current.name}
 						>
 							<Clear />
 						</div>

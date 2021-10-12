@@ -11,6 +11,7 @@ import Loading from "../shared/loading/loading";
 import SeeMoreButton from "../see-more-button/see-more-button";
 import CombatHeroesCard from "../combat-heroes-card/combat-heroes-card";
 import SelectedPlayer from "../selected-player/selected-player";
+import { toast } from "react-toastify";
 
 export default function HeroesList() {
 	const [heroes, setHeroes] = useState(null);
@@ -36,11 +37,15 @@ export default function HeroesList() {
 
 	useEffect(() => {
 		if (!allHeroes) {
-			findHeroes().then((data) => {
-				setHeroes(data.slice(0, itemsPerPage * currentPage));
-				setAllHeroes(data);
-				setTotalPages(Math.round(data.length / itemsPerPage));
-			});
+			findHeroes()
+				.then((data) => {
+					setHeroes(data.slice(0, itemsPerPage * currentPage));
+					setAllHeroes(data);
+					setTotalPages(Math.round(data.length / itemsPerPage));
+				})
+				.catch(() => {
+					toast.error("Erro ao buscar Heróis");
+				});
 		} else {
 			setHeroes(allHeroes.slice(0, itemsPerPage * currentPage));
 		}
@@ -110,6 +115,7 @@ export default function HeroesList() {
 		const fighter = heroes.find((current) => {
 			return current.id.toString() === fighterId;
 		});
+		toast.success(`${fighter.name} foi adicionado a batalha`);
 		setfighters([...fighters, fighter]);
 	}
 	function mountCombatModal() {
@@ -129,7 +135,9 @@ export default function HeroesList() {
 		return (
 			<SelectedPlayer
 				fighters={fighters}
-				clear={() => {
+				clear={(e) => {
+					const heroName = e.currentTarget.attributes.heroName.value;
+					toast.success(`${heroName} foi removido da batalha`);
 					setfighters([]);
 				}}
 			/>
