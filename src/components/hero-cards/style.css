@@ -1,31 +1,31 @@
 .hero-card {
-	display: flex;
-	flex-direction: column;
 	align-items: center;
-	width: 14%;
+	background-color: #fff;
 	border: 1px solid;
-	margin: 1%;
 	border-radius: 5px;
 	box-shadow: 0 0 9px 0px red;
-	overflow: hidden;
-	background-color: #fff;
 	cursor: pointer;
-	transition: 0.5s;
+	display: flex;
+	flex-direction: column;
+	margin: 1%;
 	min-width: 155px;
+	overflow: hidden;
+	transition: 0.5s;
+	width: 14%;
 }
 
 .hero-card:hover {
-	transform: scale(1.05);
 	box-shadow: 0 0 7px 6px #b1b1b1;
+	transform: scale(1.05);
 }
 .combat__heroes-card > .hero-card {
-	box-shadow: none;
 	border: 1px solid #fff;
+	box-shadow: none;
 }
 
 .combat__heroes-card > .hero-card:hover {
-	transform: none;
 	box-shadow: none;
+	transform: none;
 }
 .hero-card__img {
 	max-width: 160px;
@@ -34,11 +34,11 @@
 	width: 100%;
 }
 .hero-card__skills {
+	align-items: center;
 	display: flex;
 	flex-direction: column;
-	align-items: center;
-	width: 100%;
 	padding: 10px 0;
+	width: 100%;
 }
 
 .hero-card__name {
@@ -46,11 +46,11 @@
 }
 
 .skills__skill-card {
-	width: 80%;
-	display: flex;
-	justify-content: space-between;
 	align-items: center;
+	display: flex;
 	font-size: 0.75rem;
+	justify-content: space-between;
+	width: 80%;
 }
 
 .skills__name {
@@ -58,21 +58,21 @@
 }
 
 .hero-card__skill-bar {
+	border: 1px solid;
 	display: flex;
-	width: 50%;
-	height: 10px;
 	font-size: 0.35rem;
+	height: 10px;
+	overflow: hidden;
 	text-align: center;
 	transition: 0.5s;
-	overflow: hidden;
-	border: 1px solid;
+	width: 50%;
 }
 .hero-card__progress-bar {
-	content: " ";
-	width: 0%;
-	height: 100%;
 	color: #fff;
+	content: " ";
+	height: 100%;
 	transition: 2s;
+	width: 0%;
 }
 @media screen and (max-width: 1255px) {
 	.hero-card {
@@ -81,23 +81,23 @@
 }
 @media screen and (max-width: 820px) {
 	.hero-card {
-		width: 31%;
-		box-shadow: none;
 		border: 1px solid white;
+		box-shadow: none;
+		width: 31%;
 	}
 	.hero-card:hover {
-		transform: none;
 		box-shadow: none;
+		transform: none;
 	}
 	.combat__heroes-card > .hero-card {
-		width: 70%;
 		flex-direction: row;
+		width: 70%;
 	}
 }
 @media screen and (max-width: 588px) {
 	.hero-card {
-		width: 46%;
 		margin: 2%;
+		width: 46%;
 	}
 	.combat__heroes-card .skills__skill-card {
 		flex-direction: column;
@@ -106,7 +106,7 @@
 
 @media screen and (max-width: 342px) {
 	.hero-card {
-		width: 87%;
 		margin: 3% 0;
+		width: 87%;
 	}
 }

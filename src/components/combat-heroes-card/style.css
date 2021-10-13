@@ -1,0 +1,43 @@
+.combat__heroes-card {
+	align-items: flex-end;
+	background: #000;
+	border: 1px solid;
+	display: flex;
+	justify-content: space-between;
+	width: 100%;
+}
+.combat__skill-container {
+	align-items: center;
+	color: #fff;
+	display: flex;
+	font-size: 0.75rem;
+	flex-direction: column;
+	justify-content: space-between;
+	width: 100%;
+}
+.combat__skill-card {
+	align-items: center;
+	border-bottom: 1px solid #ccc;
+	display: flex;
+	justify-content: space-between;
+	margin: 5px;
+	width: 100%;
+}
+
+.combat__skills__name {
+	font-weight: 800;
+	font-size: 1rem;
+	text-transform: capitalize;
+}
+@media screen and (max-width: 820px) {
+	.combat__heroes-card {
+		align-items: center;
+		flex-direction: column;
+	}
+}
+
+@media screen and (max-height: 700px) and (max-width: 820px) {
+	.combat__skill-card {
+		display: none;
+	}
+}

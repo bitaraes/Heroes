@@ -1,14 +1,14 @@
 .combat-powerstats {
-	width: 100%;
-	display: flex;
 	align-items: center;
+	display: flex;
 	font-size: 1.2rem;
 	font-weight: 800;
+	width: 100%;
 }
 .combat-powerstats span {
-	text-align: center;
-	min-width: 30px;
 	margin: 0 2px;
+	min-width: 30px;
+	text-align: center;
 }
 .combat-powerstats.left-fighter {
 	justify-content: flex-start;
